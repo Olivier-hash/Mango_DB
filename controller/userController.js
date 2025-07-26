@@ -30,3 +30,31 @@ exports.getAllUsers = async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 };
+
+// Get user by Id
+exports.getUserByid = async (req, res) => {
+  try {
+    const user = await userModel.findById(req.params.id); // Mongoose equivalent of findByPk
+    if (!user) return res.status(404).json({ message: "User not found" });
+    res.json({ message: "User identified by ID", user });
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+
+
+//updateUser
+exports.updateUser = async (req, res) => {
+  try {
+    const user = await userModel.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true, runValidators: true }
+    );
+    if (!user) return res.status(404).json({ message: "User not found" });
+    res.json({ message: "User updated", user });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
