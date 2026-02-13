@@ -21,7 +21,7 @@ exports.createUser = async (req,res) => {
     }
 }
 
-// Read all user  da
+// Read all user  
 exports.getAllUsers = async (req, res) => {
   try {
     const users = await userModel.find(); // Mongoose equivalent of findAll
