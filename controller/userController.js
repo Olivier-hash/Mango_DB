@@ -8,7 +8,7 @@
 const userModel = require('../models/user');
 
 
-//time to commit start form commit 241 testin
+//time to commit start form commit 241 testi
 //create user
 exports.createUser = async (req,res) => {
     const {fullName, email, password} = req.body
