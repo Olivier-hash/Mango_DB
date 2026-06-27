@@ -23,4 +23,4 @@ const userSchema = new mongoose.Schema({
 
 module.exports = mongoose.model('User', userSchema);
 
-    //  extra commit star from 292    lixicon
+    //  extra commit star from 292    lixico
